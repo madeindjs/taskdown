@@ -1,8 +1,0 @@
-# Cargo.toml
-[package]
-name = "taskdown"
-version = "0.1.0"
-authors = ["Alexandre Rousseau <contact@rousseau-alexandre.fr>"]
-
-[dependencies]
-nom = "4.0.0"
