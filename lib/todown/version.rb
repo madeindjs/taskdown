@@ -1,3 +1,3 @@
-module Taskdown
+module Todown
   VERSION = "0.1.0"
 end

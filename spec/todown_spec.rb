@@ -1,6 +1,6 @@
 require 'date'
 
-RSpec.describe Taskdown do
+RSpec.describe Todown do
 
   it "read tasks" do
     expected_tasks = [
@@ -9,7 +9,7 @@ RSpec.describe Taskdown do
       Task.new('Chocolate', false, {due: Date.new(2019, 2, 14)}),
     ]
 
-    tasks = Task.from_file("sample.taskdown")
+    tasks = Task.from_file("sample.markdown")
 
     3.times do |i|
       expect(tasks[i].name).to eq(expected_tasks[i].name)
@@ -19,7 +19,7 @@ RSpec.describe Taskdown do
   end
 
   it "has a version number" do
-    expect(Taskdown::VERSION).not_to be nil
+    expect(Todown::VERSION).not_to be nil
   end
 
   it "Should parse date attribute" do

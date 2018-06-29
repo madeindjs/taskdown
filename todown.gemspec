@@ -1,17 +1,17 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "taskdown/version"
+require "todown/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "taskdown"
-  spec.version       = Taskdown::VERSION
-  spec.authors       = ["Alexandre Rousseau"]
+  spec.name          = "todown"
+  spec.version       = Todown::VERSION
+  spec.authors       = ["Alexandre Rousseau", "madeindjs"]
   spec.email         = ["contact@rousseau-alexandre.fr"]
 
   spec.summary       = %q{Markdown + Task}
   spec.description   = %q{Extract task from your markdown file}
-  spec.homepage      = "https://github.com/madeindjs/taskdown.git"
+  spec.homepage      = "https://github.com/madeindjs/todown.git"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   end
 
   spec.bindir        = "bin"
-  spec.executables   = ['taskdown']
+  spec.executables   = ['todown']
   spec.require_paths = ["lib"]
 
   spec.add_dependency "terminal-table", "~> 1.8"

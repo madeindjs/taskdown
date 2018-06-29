@@ -1,6 +1,10 @@
-# Taskdown
+# Todown
 
-Extract tasks from Markdown file. Example:
+Extract tasks from Markdown file.
+
+> I wanted to organize me without use of some too complecated software.
+
+Example:
 
 ~~~txt
 # TODO
@@ -11,7 +15,6 @@ Extract tasks from Markdown file. Example:
 - [ ] Sugar
 - [ ] Chocolate @due=2019-02-14
 
-
 ## Ideas
 
 - [x] Make something great @with=ruby @due=2010-01-01
@@ -21,7 +24,7 @@ Extract tasks from Markdown file. Example:
 Become bellow using
 
 ~~~bash
-$ taskdown sample.taskdown
+$ todown sample.markdown
 +---+----------------------+-------------------------------------+
 |   | Name                 | Attributes                          |
 +---+----------------------+-------------------------------------+
@@ -35,7 +38,7 @@ $ taskdown sample.taskdown
 you can also aply filter
 
 ~~~bash
-$ taskdown sample.taskdown --field=with
+$ todown sample.markdown --field=with
 +---+----------------------+-------------------------------------+
 |   | Name                 | Attributes                          |
 +---+----------------------+-------------------------------------+
@@ -43,20 +46,12 @@ $ taskdown sample.taskdown --field=with
 +---+----------------------+-------------------------------------+
 ~~~
 
-
-
-## Motivations
-
-I wanted to organize me without use of some too complecated software. 
-
-TODO
-
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'taskdown'
+gem 'todown'
 ```
 
 And then execute:
@@ -65,7 +60,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install taskdown
+    $ gem install todown
 
 ## Usage
 
@@ -79,7 +74,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/taskdown. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/todown. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -87,4 +82,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Taskdown project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/taskdown/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Todown project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/todown/blob/master/CODE_OF_CONDUCT.md).

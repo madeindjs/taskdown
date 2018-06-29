@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    taskdown (0.1.0)
+    todown (0.1.0)
       terminal-table (~> 1.8)
 
 GEM
@@ -33,7 +33,7 @@ DEPENDENCIES
   bundler (~> 1.16)
   rake (~> 10.0)
   rspec (~> 3.0)
-  taskdown!
+  todown!
 
 BUNDLED WITH
-   1.16.1
+   1.16.2

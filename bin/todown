@@ -1,0 +1,70 @@
+#!/usr/bin/env ruby
+require 'todown'
+require 'terminal-table'
+require 'optparse'
+
+options = {
+  only_finished: false, 
+  only_unfinished: false, 
+}
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: todown FILEPATH [options]"
+
+  opts.on '-i', '--only_unfinished', 'Display only infinished tasks' do |o|
+    options[:only_unfinished] = true
+  end
+
+  opts.on '-c', '--only_finished', 'Display only finished tasks' do |o|
+    options[:only_finished] = true
+  end
+
+  opts.on '-fFIELD', '--field=FIELD', 'Apply filter on given field' do |o|
+    options[:field] = o
+  end
+
+  # opts.on '-aDATE', '--after=DATE', 'Filter tasks after given date', 'Exemple: `todown --field=due --after=2018 FILE`' do |filter|
+  #   if defined? options[:field]
+  #     puts 'You should provide `-field=FIELD` argument' 
+  #     exit
+  #   end
+  #   options[:after] = v
+  # end
+
+  # opts.on '-bDATE', '--before=DATE', 'Filter tasks after given date', 'Exemple: `todown --field=due --before=2018 FILE`' do |filter|
+  #   if defined? options[:field]
+  #     puts 'You should provide `-field=FIELD` argument' 
+  #     exit
+  #   end
+  #   options[:before] = v
+  # end
+
+  if ARGV[0].nil?
+    puts "You must provide a file\r\n\r\n"
+    puts opts
+    exit
+  end
+end.parse!
+
+filepath = ARGV[0]
+
+rows = []
+headings = ['', 'Name', 'Attributes']
+
+tasks = Task.from_file filepath do |task|
+  # filter
+  next if options[:only_finished] and task.finished == false
+  next if options[:only_unfinished] and task.finished
+
+  if options.has_key? :field
+    field = options[:field]
+    next unless task.attributes.has_key?(field.to_sym)
+  end
+
+  status = task.finished ? 'X' : ''
+  rows << [status, task.name, task.attributes.to_s]
+end
+
+table = Terminal::Table.new rows: rows, headings: headings
+
+puts table
