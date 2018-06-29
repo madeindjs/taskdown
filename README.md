@@ -1,8 +1,38 @@
 # Taskdown
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/taskdown`. To experiment with that code, run `bin/console` for an interactive prompt.
+Extract tasks from Markdown file. Example:
 
-TODO: Delete this and the text above, and describe your gem
+~~~txt
+# Buy list 
+
+Somethings to buy
+
+- [x] Milk
+- [ ] Sugar
+
+Also for my girlfriends
+
+- [ ] Chocolate @due=2019-02-14
+~~~
+
+Become
+
+~~~txt
++---+-----------+
+|   | Name      |
++---+-----------+
+| X | Milk      |
+|   | Sugar     |
+|   | Chocolate |
++---+-----------+
+~~~
+
+
+## Motivations
+
+I wanted to organize me without use of some too complecated software. 
+
+TODO
 
 ## Installation
 
