@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   end
 
   spec.bindir        = "bin"
-  spec.executables   = ['taskdown.rb']
+  spec.executables   = ['taskdown']
   spec.require_paths = ["lib"]
 
   spec.add_dependency "terminal-table", "~> 1.8"

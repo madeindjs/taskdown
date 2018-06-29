@@ -18,9 +18,10 @@ Extract tasks from Markdown file. Example:
 
 ~~~
 
-Become bellow using `taskdown.rb sample.taskdown`
+Become bellow using
 
-~~~txt
+~~~bash
+$ taskdown sample.taskdown
 +---+----------------------+-------------------------------------+
 |   | Name                 | Attributes                          |
 +---+----------------------+-------------------------------------+
@@ -30,6 +31,18 @@ Become bellow using `taskdown.rb sample.taskdown`
 | X | Make something great | {:with=>"ruby", :due=>"2010-01-01"} |
 +---+----------------------+-------------------------------------+
 ~~~
+
+you can also aply filter
+
+~~~bash
+$ taskdown sample.taskdown --field=with
++---+----------------------+-------------------------------------+
+|   | Name                 | Attributes                          |
++---+----------------------+-------------------------------------+
+| X | Make something great | {:with=>"ruby", :due=>"2010-01-01"} |
++---+----------------------+-------------------------------------+
+~~~
+
 
 
 ## Motivations
