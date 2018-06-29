@@ -26,13 +26,12 @@ class Task
   private
 
   def parse_attributes!
-    @name.scan(/@([a-z]*)=(.*)/).each do |data|
+    @name.scan(/@([a-z]*)=(\S+)/).each do |data|
       # insert as attribute
       key = data[0].to_sym
       value = data[1]
-      # create
       @name.gsub! "@#{key}=#{value}", ''
-      @name.chomp!(' ')
+      @name.tr! ' ', ''
       begin
         value = Date.parse value
       rescue Exception => e
