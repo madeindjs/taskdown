@@ -2,9 +2,9 @@
 
 Extract tasks from Markdown file.
 
-> I wanted to organize me without use of some too complecated software.
+> I wanted to organize me without use of too complicated software.
 
-Example:
+Example with _sample.markdown_ file:
 
 ~~~txt
 # TODO
@@ -35,7 +35,22 @@ $ todown sample.markdown
 +---+----------------------+-------------------------------------+
 ~~~
 
-you can also aply filter
+
+## Usage
+
+You simply define task in your markdown file using [Github task list syntax](https://blog.github.com/2014-04-28-task-lists-in-all-markdown-documents/) like this:
+
+~~~txt
+- [x] Make something great
+~~~
+
+You can also apply filter using `@tag=value`
+
+~~~txt
+- [x] Make something great @with=ruby @due=2010-01-01
+~~~
+
+And then you can apply filter can also aply filter
 
 ~~~bash
 $ todown sample.markdown --field=with
@@ -51,20 +66,8 @@ $ todown sample.markdown --field=with
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'todown'
+gem install todown
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install todown
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Development
 
