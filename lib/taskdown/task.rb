@@ -31,7 +31,7 @@ class Task
       key = data[0].to_sym
       value = data[1]
       @name.gsub! "@#{key}=#{value}", ''
-      @name.tr! ' ', ''
+      @name.strip!
       begin
         value = Date.parse value
       rescue Exception => e

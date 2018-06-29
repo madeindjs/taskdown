@@ -35,8 +35,8 @@ RSpec.describe Taskdown do
   end
 
   it "Should parse with string attribute & date attribute" do
-    task = Task.new "Hello @due=today @tag=world"
-    expect(task.name).to eq('Hello')
+    task = Task.new "Make something great @due=today @tag=world"
+    expect(task.name).to eq('Make something great')
     expect(task.attributes[:due]).to eq('today')
     expect(task.attributes[:tag]).to eq('world')
   end

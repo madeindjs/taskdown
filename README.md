@@ -3,28 +3,32 @@
 Extract tasks from Markdown file. Example:
 
 ~~~txt
-# Buy list 
+# TODO
 
-Somethings to buy
+## Somethings to buy
 
 - [x] Milk
 - [ ] Sugar
-
-Also for my girlfriends
-
 - [ ] Chocolate @due=2019-02-14
+
+
+## Ideas
+
+- [x] Make something great @with=ruby @due=2010-01-01
+
 ~~~
 
-Become
+Become bellow using `taskdown.rb sample.taskdown`
 
 ~~~txt
-+---+-----------+
-|   | Name      |
-+---+-----------+
-| X | Milk      |
-|   | Sugar     |
-|   | Chocolate |
-+---+-----------+
++---+----------------------+-------------------------------------+
+|   | Name                 | Attributes                          |
++---+----------------------+-------------------------------------+
+| X | Milk                 | {}                                  |
+|   | Sugar                | {}                                  |
+|   | Chocolate            | {:due=>"2019-02-14"}                |
+| X | Make something great | {:with=>"ruby", :due=>"2010-01-01"} |
++---+----------------------+-------------------------------------+
 ~~~
 
 

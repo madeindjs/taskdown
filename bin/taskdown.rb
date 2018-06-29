@@ -14,13 +14,16 @@ end.parse!
 
 
 rows = []
+headings = ['', 'Name', 'Attributes']
 
-Task.from_file("sample.taskdown").map do |task|
+tasks = Task.from_file "sample.taskdown" do |task|
   status = task.finished ? 'X' : ''
 
-  rows << [status, task.name]
+  row = [status, task.name, task.attributes.to_s]
+
+  rows << row
 end
 
-table = Terminal::Table.new rows: rows, headings: ['', 'Name']
+table = Terminal::Table.new rows: rows, headings: headings
 
 puts table
