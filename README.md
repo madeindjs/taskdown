@@ -25,6 +25,8 @@ Become bellow using
 
 ~~~bash
 $ todown sample.markdown
+~~~
+~~~txt
 +---+----------------------+-------------------------------------+
 |   | Name                 | Attributes                          |
 +---+----------------------+-------------------------------------+
@@ -54,6 +56,8 @@ And then you can apply filter can also aply filter
 
 ~~~bash
 $ todown sample.markdown --field=with
+~~~
+~~~txt
 +---+----------------------+-------------------------------------+
 |   | Name                 | Attributes                          |
 +---+----------------------+-------------------------------------+
@@ -62,8 +66,6 @@ $ todown sample.markdown --field=with
 ~~~
 
 ## Installation
-
-Add this line to your application's Gemfile:
 
 ```ruby
 gem install todown
@@ -77,7 +79,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/todown. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/madeindjs/todown. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -85,4 +87,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Todown project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/todown/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Todown project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/madeindjs/todown/blob/master/CODE_OF_CONDUCT.md).
