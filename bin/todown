@@ -43,8 +43,9 @@ end.parse!
 filepath = ARGV[0]
 
 
+tasks = []
 
-tasks = Task.from_file filepath do |task|
+Task.from_file(filepath) do |task|
   # filter
   next if options[:only_finished] and task.finished == false
   next if options[:only_unfinished] and task.finished
@@ -64,6 +65,8 @@ tasks = Task.from_file filepath do |task|
     # filter only element who are after the given date
     next if task.attributes[field.to_sym] > options[:before]
   end
+
+  tasks << task
 end
 
 
