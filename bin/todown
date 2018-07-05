@@ -44,8 +44,10 @@ filepath = ARGV[0]
 
 
 tasks = []
+total_count = 0
 
 Task.from_file(filepath) do |task|
+  total_count += 1
   # filter
   next if options[:only_finished] and task.finished == false
   next if options[:only_unfinished] and task.finished
@@ -71,3 +73,11 @@ end
 
 
 puts Todown.task_to_table tasks
+
+exit if total_count == 1
+
+if options.has_key? :field
+  puts "%s of %s tasks displayed" % [ tasks.count, total_count]
+else
+  puts "%s tasks displayed" % [ tasks.count ]
+end
