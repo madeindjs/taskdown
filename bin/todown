@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 require 'todown'
-require 'terminal-table'
 require 'optparse'
 require 'date'
 
@@ -43,8 +42,7 @@ end.parse!
 
 filepath = ARGV[0]
 
-rows = []
-headings = ['', 'Name', 'Attributes']
+
 
 tasks = Task.from_file filepath do |task|
   # filter
@@ -66,11 +64,7 @@ tasks = Task.from_file filepath do |task|
     # filter only element who are after the given date
     next if task.attributes[field.to_sym] > options[:before]
   end
-
-  status = task.finished ? 'X' : ''
-  rows << [status, task.name, task.attributes.to_s]
 end
 
-table = Terminal::Table.new rows: rows, headings: headings
 
-puts table
+puts Todown.task_to_table tasks
