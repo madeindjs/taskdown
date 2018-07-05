@@ -2,10 +2,11 @@
 require 'todown'
 require 'terminal-table'
 require 'optparse'
+require 'date'
 
 options = {
-  only_finished: false, 
-  only_unfinished: false, 
+  only_finished: false,
+  only_unfinished: false,
 }
 
 OptionParser.new do |opts|
@@ -23,21 +24,15 @@ OptionParser.new do |opts|
     options[:field] = o
   end
 
-  # opts.on '-aDATE', '--after=DATE', 'Filter tasks after given date', 'Exemple: `todown --field=due --after=2018 FILE`' do |filter|
-  #   if defined? options[:field]
-  #     puts 'You should provide `-field=FIELD` argument' 
-  #     exit
-  #   end
-  #   options[:after] = v
-  # end
+  opts.on '-aDATE', '--after=DATE', 'Filter tasks after given date', 'Exemple: `todown --field=due --after=2018 FILE`' do |filter|
+    puts 'You should provide `--field=FIELD` argument' && exit if options[:field].nil?
+    options[:after] = Date.parse filter
+  end
 
-  # opts.on '-bDATE', '--before=DATE', 'Filter tasks after given date', 'Exemple: `todown --field=due --before=2018 FILE`' do |filter|
-  #   if defined? options[:field]
-  #     puts 'You should provide `-field=FIELD` argument' 
-  #     exit
-  #   end
-  #   options[:before] = v
-  # end
+  opts.on '-bDATE', '--before=DATE', 'Filter tasks after given date', 'Exemple: `todown --field=due --before=2018 FILE`' do |filter|
+    puts 'You should provide `--field=FIELD` argument' && exit if options[:field].nil?
+    options[:before] = Date.parse filter
+  end
 
   if ARGV[0].nil?
     puts "You must provide a file\r\n\r\n"
@@ -57,8 +52,19 @@ tasks = Task.from_file filepath do |task|
   next if options[:only_unfinished] and task.finished
 
   if options.has_key? :field
+    # filter only element who own the specified field
     field = options[:field]
     next unless task.attributes.has_key?(field.to_sym)
+  end
+
+  if options.has_key? :after
+    # filter only element who are after the given date
+    next if task.attributes[field.to_sym] < options[:after]
+  end
+
+  if options.has_key? :before
+    # filter only element who are after the given date
+    next if task.attributes[field.to_sym] > options[:before]
   end
 
   status = task.finished ? 'X' : ''

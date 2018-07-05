@@ -55,7 +55,7 @@ You can also apply filter using `@tag=value`
 And then you can apply filter can also aply filter
 
 ~~~bash
-$ todown sample.markdown --field=with
+$ todown sample.markdown --field=due --after=2019-01-01
 ~~~
 ~~~txt
 +---+----------------------+-------------------------------------+

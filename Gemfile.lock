@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    todown (0.1.0)
+    todown (0.2.0)
       terminal-table (~> 1.8)
 
 GEM
