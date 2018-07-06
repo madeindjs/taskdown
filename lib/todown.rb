@@ -1,6 +1,7 @@
 require "todown/version"
 require "todown/task"
 require 'terminal-table'
+require 'find'
 
 module Todown
 
@@ -47,6 +48,38 @@ module Todown
     end
 
     return {rows: rows, headings: headings }
+  end
+
+
+  # Create many task from given filepath
+  #
+  # @param filepath [String] filepath of readable markdown file
+  # @yield [Task]
+  # @return [Array<Task>]
+  def self.tasks_from_file filepath
+    tasks = []
+
+    File.read(filepath).scan(/- \[( |X|x)\] (.+)/).each do |data|
+      task = Task.new data[1], (data[0] != ' ')
+      tasks << task
+      yield task if block_given?
+    end
+
+    return tasks
+  end
+
+
+  def self.tasks_from_path path
+    tasks = []
+
+    Find.find(path).select{|f| File.file?(f) and File.readable?(f)}.each do |file|
+      self.tasks_from_file(file) do |task|
+        tasks << task
+        yield task
+      end
+    end
+
+    return tasks
   end
 
 end

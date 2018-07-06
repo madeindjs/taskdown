@@ -9,7 +9,7 @@ options = {
 }
 
 OptionParser.new do |opts|
-  opts.banner = "Usage: todown FILEPATH [options]"
+  opts.banner = "Usage: todown FILEPATH [options] with FILEPATH as file or a folder containig files"
 
   opts.on '-i', '--only_unfinished', 'Display only infinished tasks' do |o|
     options[:only_unfinished] = true
@@ -46,7 +46,7 @@ filepath = ARGV[0]
 tasks = []
 total_count = 0
 
-Task.from_file(filepath) do |task|
+Todown.tasks_from_path(filepath) do |task|
   total_count += 1
   # filter
   next if options[:only_finished] and task.finished == false
