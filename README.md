@@ -1,5 +1,7 @@
 # Todown
 
+[![Gem Version](https://badge.fury.io/rb/todown.svg)](https://rubygems.org/gems/todown)
+
 Extract tasks from Markdown file.
 
 > I wanted to organize me without use of too complicated software.
